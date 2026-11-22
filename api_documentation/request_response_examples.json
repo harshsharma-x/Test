@@ -1,0 +1,177 @@
+{
+  "auth_create_csrf": {
+    "method": "GET",
+    "url": "https://www.zepto.com/api/auth/create-csrf-token",
+    "headers": {
+      "accept": "application/json",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130.0.0.0"
+    },
+    "response_status": 200,
+    "response_body": {}
+  },
+  "auth_send_otp": {
+    "method": "POST",
+    "url": "https://bff-gateway.zepto.com/api/v1/user/customer/send-otp-sms/",
+    "headers": {
+      "content-type": "application/json",
+      "request-signature": "verified_app_signature",
+      "x-csrf-secret": "sec_8f9104a"
+    },
+    "request_body": {
+      "mobileNumber": "9876543210",
+      "countryCode": "+91"
+    },
+    "response_status": 200,
+    "response_body": {
+      "verificationType": "otp_sms",
+      "data": {
+        "msg": "OTP Sent."
+      }
+    }
+  },
+  "auth_verify_otp": {
+    "method": "POST",
+    "url": "https://www.zepto.com/api/auth/verify-otp",
+    "headers": {
+      "content-type": "application/json",
+      "request-signature": "verified_app_signature"
+    },
+    "request_body": {
+      "mobileNumber": "9876543210",
+      "countryCode": "+91",
+      "otpToken": "123456"
+    },
+    "response_status": 200,
+    "response_body": {
+      "user": {
+        "id": "f9f0e4e0-5100-492f-97fe-d9a0b9334fca",
+        "fullName": "Shridhar",
+        "mobileNumber": "+919876543210",
+        "countryCode": "+91",
+        "emailId": null,
+        "isRegistered": true,
+        "userType": "CUSTOMER",
+        "referralCode": "YLFNLE",
+        "blockRefererral": false
+      }
+    }
+  },
+  "serviceability_check": {
+    "method": "GET",
+    "url": "https://bff-gateway.zepto.com/serviceability-service/api/v1/serviceability?lat=19.0760&long=72.8777",
+    "response_status": 200,
+    "response_body": {
+      "data": {
+        "serviceable": true,
+        "stores": [
+          {
+            "storeId": "be26bc15-ab29-4afb-8ea6-714ca5f57a82",
+            "storeConstruct": "PRIMARY_STORE",
+            "isNightlyStore": false,
+            "cost": 726.2,
+            "serviceable": true
+          }
+        ],
+        "primary_store_meta": {
+          "eta_delta_threshold_in_mins": 10
+        }
+      }
+    }
+  },
+  "product_search": {
+    "method": "POST",
+    "url": "https://bff-gateway.zepto.com/user-search-service/api/v3/search",
+    "headers": {
+      "content-type": "application/json",
+      "x-without-bearer": "true"
+    },
+    "request_body": {
+      "query": "milk",
+      "pageNumber": 0,
+      "mode": "SHOW_ALL_RESULTS",
+      "userSessionId": "550e8400-e29b-41d4-a716-446655440000"
+    },
+    "response_status": 200,
+    "response_body": {
+      "layout": [
+        {
+          "widgetType": "PRODUCT_GRID",
+          "data": {
+            "resolver": {
+              "data": {
+                "items": [
+                  {
+                    "id": "prod_amul_taaza",
+                    "name": "Amul Taaza Toned Fresh Milk",
+                    "brand": "Amul",
+                    "mrp": 3000,
+                    "discountedSellingPrice": 2800,
+                    "discountPercent": 7,
+                    "unit": "500 ml",
+                    "availableQuantity": 50,
+                    "imageUrl": "https://cdn.zeptonow.com/production/ik-seo/tr:w-600,cm-pad_resize/cms/product_variant/amul_taaza.jpg"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "cart_create": {
+    "method": "POST",
+    "url": "https://bff-gateway.zepto.com/cfs/api/v1/cart/create",
+    "headers": {
+      "content-type": "application/json",
+      "request-signature": "verified_app_signature"
+    },
+    "request_body": {
+      "storeId": "be26bc15-ab29-4afb-8ea6-714ca5f57a82",
+      "cartId": "cart_82a17cf1",
+      "cartProducts": [
+        {
+          "storeProductId": "prod_amul_taaza",
+          "productVariantId": "var_amul_500ml",
+          "mrp": 3000,
+          "quantity": 2,
+          "isDiscountApplicable": true
+        }
+      ]
+    },
+    "response_status": 200,
+    "response_body": {
+      "cart": {
+        "id": "cart_82a17cf1",
+        "itemCount": 2,
+        "mrpTotal": 6000,
+        "itemDiscount": 400,
+        "payableAmount": 5600,
+        "deliveryFee": 0
+      }
+    }
+  },
+  "order_history": {
+    "method": "GET",
+    "url": "https://bff-gateway.zepto.com/api/v2/order/",
+    "response_status": 200,
+    "response_body": {
+      "orders": [
+        {
+          "id": "019f0e51-b5d8-7fae-9611-de1bccb38608",
+          "code": "OHRMRSARN97997",
+          "status": "DELIVERED",
+          "grandTotalAmount": 10000,
+          "itemQuantityCount": 4,
+          "placedTime": "2026-06-28T13:01:04.738Z",
+          "productsNamesAndCounts": [
+            {
+              "name": "Kwality Wall's Magnum Pistachio Ice Cream Stick",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

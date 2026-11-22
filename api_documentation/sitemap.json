@@ -1,0 +1,160 @@
+{
+  "site": "https://www.zepto.com",
+  "bff_gateway": "https://bff-gateway.zepto.com",
+  "pages": [
+    {
+      "path": "/",
+      "name": "Homepage",
+      "features": [
+        "categories",
+        "hero_banner",
+        "trending",
+        "recommendations",
+        "quick_add"
+      ]
+    },
+    {
+      "path": "/bestsellers",
+      "name": "Bestsellers",
+      "features": [
+        "top_selling_products",
+        "filter",
+        "sort"
+      ]
+    },
+    {
+      "path": "/search",
+      "name": "Search",
+      "features": [
+        "query_search",
+        "autocomplete",
+        "category_filter",
+        "brand_filter"
+      ]
+    },
+    {
+      "path": "/product/{product_id}",
+      "name": "Product Details",
+      "features": [
+        "variant_picker",
+        "images",
+        "nutrition_info",
+        "mrp_discount"
+      ]
+    },
+    {
+      "path": "/cart",
+      "name": "Shopping Cart",
+      "features": [
+        "item_quantities",
+        "bill_summary",
+        "free_delivery_progress",
+        "cross_sell"
+      ]
+    },
+    {
+      "path": "/offers",
+      "name": "Coupons & Offers",
+      "features": [
+        "promo_cash",
+        "bank_offers",
+        "cart_discounts",
+        "auto_apply"
+      ]
+    },
+    {
+      "path": "/checkout",
+      "name": "Checkout Flow",
+      "features": [
+        "address_selection",
+        "delivery_slot",
+        "quickpay_options",
+        "order_confirmation"
+      ]
+    },
+    {
+      "path": "/account",
+      "name": "Account Overview",
+      "features": [
+        "profile_info",
+        "pass_overview",
+        "wallet_balance",
+        "referral_widget"
+      ]
+    },
+    {
+      "path": "/account/orders",
+      "name": "Order History",
+      "features": [
+        "order_list",
+        "delivery_status",
+        "reorder_cta"
+      ]
+    },
+    {
+      "path": "/order/{order_id}",
+      "name": "Order Tracking & Details",
+      "features": [
+        "live_eta",
+        "driver_location",
+        "order_items",
+        "invoice"
+      ]
+    },
+    {
+      "path": "/account/addresses",
+      "name": "Saved Addresses",
+      "features": [
+        "geofenced_locations",
+        "address_crud"
+      ]
+    },
+    {
+      "path": "/account/support",
+      "name": "Customer Support",
+      "features": [
+        "faqs",
+        "order_rating",
+        "live_chat"
+      ]
+    }
+  ],
+  "known_flows": {
+    "authentication": [
+      "GET /api/auth/create-csrf-token",
+      "POST /api/v1/user/customer/send-otp-sms/",
+      "POST /api/auth/verify-otp",
+      "POST /api/v2/user/customer/info/"
+    ],
+    "browsing_and_catalogue": [
+      "GET /serviceability-service/api/v1/serviceability",
+      "GET /lms/api/v2/get_page",
+      "POST /cfs/api/v1/bulk-widget-data",
+      "GET /recommendation-service/api/v1/buy-again-products"
+    ],
+    "search": [
+      "POST /user-search-service/api/v3/search",
+      "GET /search-federator-service/api/v1/search",
+      "POST /user-search-service/api/v3/search/filters"
+    ],
+    "cart_and_pricing": [
+      "POST /cfs/api/v1/cart/create",
+      "POST /cfs/api/v1/bulk-widget-data"
+    ],
+    "offers_and_promotions": [
+      "GET /coupon-service/api/v1/coupons/promo_cash",
+      "GET /api/v1/pass/overview",
+      "GET /cdn.zeptonow.com/production/web/json/campaign-config.json"
+    ],
+    "checkout_and_payment": [
+      "POST /payment-service/payment-listing-api/v1/quickpay",
+      "GET /api/v1/wallet-balances/total"
+    ],
+    "orders_and_tracking": [
+      "GET /api/v2/order/",
+      "POST /pfs-postorder/api/v1/get-page/ORDER_DETAILS",
+      "GET /post-order-service/api/v2/order/last-ongoing-order",
+      "POST /samiksha-service/api/v1/order-rating"
+    ]
+  }
+}

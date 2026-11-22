@@ -1,0 +1,1214 @@
+{
+  "generated_from": [
+    "captures\\web_journey.jsonl",
+    "captures\\web_signed_in2.jsonl",
+    "captures\\web_cart.jsonl"
+  ],
+  "note": "Observed shapes only; no header values, tokens or bodies are exported.",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "name": "GET /api/v1/pass/overview",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v1/pass/overview",
+      "feature": "account",
+      "calls_observed": 6,
+      "status_codes": {
+        "200": 6
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "showBadge": "bool",
+        "showBottomsheet": "bool",
+        "variantName": "string",
+        "productOffers": [],
+        "passLockedStateText": "string",
+        "suggestedPass": "null",
+        "membership": "null",
+        "userCohort": "string",
+        "lifetimeSavings": {
+          "totalPurchaseFee": "number",
+          "totalSavingsAmount": "number",
+          "totalPreviousSavingsAmount": "number",
+          "isMember": "bool",
+          "totalDailyPurchaseFee": "number",
+          "totalDailySavingsAmount": "number",
+          "totalRoyalePurchaseFee": "number",
+          "totalRoyaleSavingsAmount": "number",
+          "totalRoyaleOrderCount": "number",
+          "savingsBreakdown": [],
+          "totalOrders": "number"
+        },
+        "brandsInfo": [],
+        "renewalDurationTitle": [],
+        "renewalPreExpiryInfo": []
+      }
+    },
+    {
+      "name": "GET /api/v1/user/customer/referrals/",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v1/user/customer/referrals/",
+      "feature": "account",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "uiSchema": {
+          "benefitsWidget": {
+            "advocate": "...",
+            "receiver": "..."
+          },
+          "header": {
+            "image": "...",
+            "subtitle": "...",
+            "title": "..."
+          },
+          "stepsToRefer": {
+            "footer": "...",
+            "steps": "...",
+            "title": "..."
+          }
+        },
+        "pageLayout": "null",
+        "referralCode": "string"
+      }
+    },
+    {
+      "name": "GET /api/v1/wallet-balances/total",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v1/wallet-balances/total",
+      "feature": "account",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "includePendingGiftCardInfo"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "explicit no-bearer opt-out",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "totalBalance": "number",
+        "availableBalance": "number",
+        "totalPromotionalBalance": "number",
+        "available": "bool",
+        "hasPendingGiftCard": "bool",
+        "totalBalanceNumericalAbbreviation": "string"
+      }
+    },
+    {
+      "name": "POST /api/v2/user/customer/info/",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v2/user/customer/info/",
+      "feature": "account",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "appVersion": "string",
+        "bundleVersion": "string",
+        "deviceUid": "string",
+        "platform": "string"
+      },
+      "response_shape": {
+        "user": {
+          "blockRefererral": "bool",
+          "countryCode": "string",
+          "emailId": "null",
+          "fullName": "string",
+          "id": "string",
+          "isBetaUser": "null",
+          "isInternalUser": "bool",
+          "isInternationalUser": "bool",
+          "isRegistered": "bool",
+          "isUserFullNameSet": "bool",
+          "lastOrderNotified": "bool",
+          "mobileNumber": "string"
+        },
+        "ongoingOrderId": "null",
+        "ongoingOrderCreationTime": "null",
+        "userAggregate": {
+          "AVERAGE_ARRIVAL_TIME": "number",
+          "AVERAGE_ORDER_VALUE": "number",
+          "CDP_ASV_MEDIAN": "number",
+          "CDP_COUNTRY_CODE": "string",
+          "CDP_DEVICE_PRICE_RANGE": "string",
+          "CDP_GPPO_MEDIAN": "number",
+          "CDP_L28_DAYS_ACTIVE_GPPO_NTILE": "number",
+          "CDP_L28_DAYS_MAX_RECENCY": "number",
+          "CDP_L3M_GPPO_MEDIAN": "number",
+          "CDP_LAST_12_WEEKS_ACTIVE": "number",
+          "CDP_LAST_3_MONTHS_WEEKLY_FREQ_MEDIAN": "number",
+          "CDP_LAST_ORDER_MONTH_USER_GPPO_DECILE": "number"
+        },
+        "referralExperiment": {
+          "active": "bool",
+          "referral_revamp_enabled": "bool",
+          "sub_variant": "string",
+          "variant": "string"
+        },
+        "userTncPrivacyInfo": {
+          "isTncPrivacyPolicyAccepted": "bool",
+          "isTncPrivacyPolicyMandatory": "bool"
+        },
+        "noBagDeliveryUserType": "string",
+        "isNewFont": "bool",
+        "disableCgOnScreen": []
+      }
+    },
+    {
+      "name": "GET /coupon-service/api/v1/coupons/promo_cash",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/coupon-service/api/v1/coupons/promo_cash",
+      "feature": "account",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "source"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": "null"
+    },
+    {
+      "name": "GET /pagead/1p-user-list/{n}/",
+      "method": "GET",
+      "host": "www.google.com",
+      "path": "/pagead/1p-user-list/{n}/",
+      "feature": "account",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "_tu",
+        "async",
+        "auid",
+        "bg",
+        "cid",
+        "cv",
+        "data",
+        "dma",
+        "en",
+        "ept",
+        "fmt",
+        "frm",
+        "fst",
+        "gcd",
+        "gtm",
+        "guid",
+        "hn",
+        "ipr",
+        "is_vtc",
+        "npa",
+        "pscdl",
+        "random",
+        "rcb",
+        "rfmt",
+        "rmt_tld",
+        "tag_exp",
+        "tiba",
+        "u_h",
+        "u_w",
+        "uaa",
+        "uab",
+        "uafvl",
+        "uam",
+        "uamb",
+        "uap",
+        "uapv",
+        "uaw",
+        "url"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "GET /api/auth/create-csrf-token",
+      "method": "GET",
+      "host": "www.zepto.com",
+      "path": "/api/auth/create-csrf-token",
+      "feature": "authentication",
+      "calls_observed": 2,
+      "status_codes": {
+        "200": 2
+      },
+      "query_params": [],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": {}
+    },
+    {
+      "name": "POST /api/auth/verify-otp",
+      "method": "POST",
+      "host": "www.zepto.com",
+      "path": "/api/auth/verify-otp",
+      "feature": "authentication",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "mobileNumber": "string",
+        "countryCode": "string",
+        "otpToken": "string"
+      },
+      "response_shape": {
+        "user": {
+          "blockRefererral": "bool",
+          "countryCode": "string",
+          "emailId": "null",
+          "fullName": "string",
+          "id": "string",
+          "isBetaUser": "null",
+          "isInternalUser": "bool",
+          "isInternationalUser": "bool",
+          "isRegistered": "bool",
+          "lastOrderNotified": "bool",
+          "mobileNumber": "string",
+          "referralCode": "string"
+        }
+      }
+    },
+    {
+      "name": "POST /api/v1/user/customer/send-otp-sms/",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v1/user/customer/send-otp-sms/",
+      "feature": "authentication",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "mobileNumber": "string",
+        "countryCode": "string"
+      },
+      "response_shape": {
+        "verificationType": "string",
+        "data": {
+          "msg": "string"
+        }
+      }
+    },
+    {
+      "name": "POST /cfs/api/v1/cart/create",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/cfs/api/v1/cart/create",
+      "feature": "cart",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "storeId": "string",
+        "cartId": "string",
+        "cartProducts": [
+          {
+            "storeProductId": "...",
+            "productVariantId": "...",
+            "mrp": "...",
+            "quantity": "...",
+            "isDiscountApplicable": "...",
+            "isAddedToGiftBag": "..."
+          }
+        ],
+        "cartProductsV2": [
+          {
+            "storeProductId": "...",
+            "productVariantId": "...",
+            "mrp": "...",
+            "quantity": "...",
+            "isDiscountApplicable": "...",
+            "isAddedToGiftBag": "...",
+            "cartProductId": "...",
+            "addOns": "..."
+          }
+        ],
+        "swappedPvIds": {},
+        "removedCampaignProducts": [],
+        "availedCampaignProducts": [],
+        "availedCampaignProductIds": [],
+        "deliveryInstructions": {
+          "leaveAtGate": "bool",
+          "doNotRingBell": "bool",
+          "bewareOfPets": "bool",
+          "returnPaperBag": "bool",
+          "returnCokePetBottle": "bool"
+        },
+        "oosProductMeta": [],
+        "riderTip": "number",
+        "latitude": "number"
+      },
+      "response_shape": "JSON (truncated by capture body limit)"
+    },
+    {
+      "name": "POST /cfs/api/v1/bulk-widget-data",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/cfs/api/v1/bulk-widget-data",
+      "feature": "catalogue",
+      "calls_observed": 7,
+      "status_codes": {
+        "200": 7
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "widgets": [
+          {
+            "id": "...",
+            "pageIdentifier": "...",
+            "widgetDisplayType": "..."
+          }
+        ],
+        "cartProducts": [],
+        "enrichCall": "bool",
+        "showAllOffers": "bool",
+        "campaignIds": [],
+        "couponIds": [],
+        "alreadyShownNudgeThresholdsV2": [],
+        "availedCampaignProducts": [],
+        "removedCampaigns": [],
+        "cartId": "string"
+      },
+      "response_shape": {
+        "pageLayout": {
+          "widgets": [
+            "..."
+          ],
+          "pageMeta": {
+            "dynamicWidgetType": "...",
+            "deliveryFeeMov": "..."
+          },
+          "endOfPage": "bool"
+        }
+      }
+    },
+    {
+      "name": "GET /lms/api/v2/get_page",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/lms/api/v2/get_page",
+      "feature": "catalogue",
+      "calls_observed": 16,
+      "status_codes": {
+        "200": 16
+      },
+      "query_params": [
+        "enforce_platform_type",
+        "last_widget_id",
+        "latitude",
+        "layout_id",
+        "longitude",
+        "page_size",
+        "page_type",
+        "show_new_eta_banner",
+        "tab_id",
+        "version"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "endOfPage": "bool",
+        "storeServiceableResponse": {
+          "isNightlyStore": "bool",
+          "secondaryStoreIds": [
+            "..."
+          ],
+          "serviceable": "bool",
+          "storeId": "string"
+        },
+        "pageLayout": {
+          "bottomNav": {
+            "default": "...",
+            "items": "..."
+          },
+          "endOfPage": "bool",
+          "experienceVariant": "string",
+          "fnvIrlVariant": "string",
+          "footerV2": {
+            "widget": "..."
+          },
+          "header": {
+            "widget": "..."
+          },
+          "headerV2": {
+            "defaultBackground": "...",
+            "primaryWidgets": "...",
+            "secondaryWidgets": "...",
+            "topNavBarWidget": "..."
+          },
+          "isE2EAdsEnabled": "bool",
+          "isEmiEnabled": "bool",
+          "isListsEnabled": "bool",
+          "isScheduleDeliveryEnabled": "bool",
+          "isYfpEnabled": "bool"
+        },
+        "unserviceableDetails": "null",
+        "externalVendorServiceabilityInfo": "null",
+        "festivalUITheme": "string",
+        "datasource": "string",
+        "passDetails": {},
+        "showWalletIconOnHeader": "bool",
+        "nextPageParams": "null",
+        "storeServiceableResponseV2": [
+          {
+            "serviceable": "...",
+            "storeId": "...",
+            "storeConstruct": "...",
+            "isNightlyStore": "..."
+          }
+        ],
+        "isEntryPageEnabled": "bool"
+      }
+    },
+    {
+      "name": "GET /recommendation-service/api/v1/buy-again-products",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/recommendation-service/api/v1/buy-again-products",
+      "feature": "catalogue",
+      "calls_observed": 4,
+      "status_codes": {
+        "200": 4
+      },
+      "query_params": [
+        "group_id",
+        "store_id"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "storeProducts": [
+          {
+            "objectId": "...",
+            "id": "...",
+            "storeId": "...",
+            "product": "...",
+            "productVariant": "...",
+            "discountedSellingPrice": "...",
+            "discountPercent": "...",
+            "discountAmount": "...",
+            "storeProductDiscountId": "...",
+            "availableQuantity": "...",
+            "quantity": "...",
+            "allocatedQuantity": "..."
+          }
+        ],
+        "groupNameMapping": {
+          "all items": "string",
+          "beauty & personal care": "string",
+          "dairy products": "string",
+          "fruits & vegetables": "string",
+          "grocery & kitchen": "string",
+          "household essentials": "string",
+          "rakhi": "string",
+          "snacks & drinks": "string",
+          "sweets & chocolates": "string",
+          "zepto cafe": "string"
+        }
+      }
+    },
+    {
+      "name": "GET /proxy/connect.facebook.net/en_US/fbevents.js",
+      "method": "GET",
+      "host": "www.zepto.com",
+      "path": "/proxy/connect.facebook.net/en_US/fbevents.js",
+      "feature": "marketing",
+      "calls_observed": 9,
+      "status_codes": {
+        "200": 9
+      },
+      "query_params": [],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": "non-JSON body"
+    },
+    {
+      "name": "GET /proxy/connect.facebook.net/signals/config/{n}",
+      "method": "GET",
+      "host": "www.zepto.com",
+      "path": "/proxy/connect.facebook.net/signals/config/{n}",
+      "feature": "marketing",
+      "calls_observed": 9,
+      "status_codes": {
+        "200": 9
+      },
+      "query_params": [
+        "domain",
+        "ex_m",
+        "hme",
+        "r",
+        "v"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": "non-JSON body"
+    },
+    {
+      "name": "GET /proxy/googleads.g.doubleclick.net/pagead/viewthroughconversion/{n}/",
+      "method": "GET",
+      "host": "www.zepto.com",
+      "path": "/proxy/googleads.g.doubleclick.net/pagead/viewthroughconversion/{n}/",
+      "feature": "marketing",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "_tu",
+        "async",
+        "auid",
+        "bg",
+        "cv",
+        "data",
+        "dma",
+        "en",
+        "ept",
+        "fmt",
+        "frm",
+        "fst",
+        "gcd",
+        "gtm",
+        "guid",
+        "hn",
+        "npa",
+        "pscdl",
+        "random",
+        "rcb",
+        "rfmt",
+        "tag_exp",
+        "tiba",
+        "u_h",
+        "u_w",
+        "uaa",
+        "uab",
+        "uafvl",
+        "uam",
+        "uamb",
+        "uap",
+        "uapv",
+        "uaw",
+        "url"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "POST /~partytown/proxytown",
+      "method": "POST",
+      "host": "www.zepto.com",
+      "path": "/~partytown/proxytown",
+      "feature": "marketing",
+      "calls_observed": 4879,
+      "status_codes": {
+        "200": 4879
+      },
+      "query_params": [],
+      "auth_indicators": [],
+      "request_body_shape": {
+        "F": "string",
+        "Q": [
+          {
+            "V": "...",
+            "w": "...",
+            "a": "..."
+          }
+        ]
+      },
+      "response_shape": {
+        "F": "string",
+        "M": [
+          "number"
+        ]
+      }
+    },
+    {
+      "name": "GET /api/v2/order/",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v2/order/",
+      "feature": "orders",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "orders": [
+          {
+            "id": "...",
+            "code": "...",
+            "status": "...",
+            "formattedStatus": "...",
+            "paymentStatus": "...",
+            "itemQuantityCount": "...",
+            "grandTotalAmount": "...",
+            "totalRefundAmount": "...",
+            "placedTime": "...",
+            "rating": "...",
+            "ratingSkipped": "...",
+            "totalDeliveryTimeInSeconds": "..."
+          }
+        ],
+        "endOfList": "bool",
+        "recommendedProducts": [
+          {
+            "allocatedQuantity": "...",
+            "analyticsMeta": "...",
+            "applied_promo_details": "...",
+            "atcActions": "...",
+            "availableQuantity": "...",
+            "bundleIds": "...",
+            "bundleItems": "...",
+            "category": "...",
+            "consumerL3CategoryNames": "...",
+            "deeplinkUrl": "...",
+            "disableSSNudge": "...",
+            "discountAmount": "..."
+          }
+        ],
+        "minimumProductsRequired": "number",
+        "carouselPosition": "number",
+        "nextPageParams": {
+          "lastOrderCreatedOn": "string"
+        }
+      }
+    },
+    {
+      "name": "GET /post-order-service/api/v2/order/last-ongoing-order",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/post-order-service/api/v2/order/last-ongoing-order",
+      "feature": "orders",
+      "calls_observed": 3,
+      "status_codes": {
+        "200": 3
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "backgroundColor": "string",
+        "bannerType": "null",
+        "carouselBackgroundColor": "string",
+        "carouselItemColor": "string",
+        "carouselTextColor": "string",
+        "img": "string",
+        "ongoingOrders": [],
+        "orderId": "null",
+        "orderPlacedAt": "null",
+        "orderStatus": "string",
+        "subtitle": "string",
+        "textColor": "string"
+      }
+    },
+    {
+      "name": "POST /samiksha-service/api/v1/order-rating",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/samiksha-service/api/v1/order-rating",
+      "feature": "orders",
+      "calls_observed": 3,
+      "status_codes": {
+        "200": 3
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "order_id": "string"
+      },
+      "response_shape": {
+        "isUserInExperiment": "bool",
+        "isRatingSkipped": "bool",
+        "productRatingLayoutConfig": {
+          "isImageEnabled": "bool",
+          "isPillEnabled": "bool",
+          "uiConfig": {
+            "isProfileReviewAndEarn": "...",
+            "isReviewAndEarn": "...",
+            "orderRatingDesign": "...",
+            "stripPosition": "..."
+          }
+        },
+        "hygieneFeedback": {
+          "acknowledgmentConfig": {
+            "actionButton": "...",
+            "autoDismissDurationMs": "...",
+            "backgroundGradient": "...",
+            "statusTitle": "...",
+            "undoDelayDurationMs": "...",
+            "undoEnabledFor": "..."
+          },
+          "image": {
+            "height": "...",
+            "id": "...",
+            "mediaType": "...",
+            "name": "...",
+            "path": "...",
+            "width": "..."
+          },
+          "options": [
+            "..."
+          ],
+          "subtitle": "string",
+          "title": "string"
+        }
+      }
+    },
+    {
+      "name": "GET /",
+      "method": "GET",
+      "host": "www.zepto.com",
+      "path": "/",
+      "feature": "other",
+      "calls_observed": 2,
+      "status_codes": {
+        "200": 2
+      },
+      "query_params": [
+        "_rsc"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": "non-JSON body"
+    },
+    {
+      "name": "POST /api/v1/gateway/graphql/",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/api/v1/gateway/graphql/",
+      "feature": "other",
+      "calls_observed": 6,
+      "status_codes": {
+        "200": 6
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": {
+        "operationName": "string",
+        "variables": {},
+        "query": "string"
+      },
+      "response_shape": {
+        "data": {
+          "app": "null",
+          "user": {
+            "info": "...",
+            "address": "..."
+          }
+        },
+        "errors": "null"
+      }
+    },
+    {
+      "name": "POST /ccm/collect",
+      "method": "POST",
+      "host": "www.google.com",
+      "path": "/ccm/collect",
+      "feature": "other",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "_gsid",
+        "_tu",
+        "ae",
+        "apvc",
+        "auid",
+        "dl",
+        "dma",
+        "dt",
+        "en",
+        "fmt",
+        "frm",
+        "gcd",
+        "gtm",
+        "navt",
+        "npa",
+        "rcb",
+        "rnd",
+        "scrsrc",
+        "tag_exp",
+        "tfd",
+        "tft",
+        "tid",
+        "tids"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "POST /measurement/conversion",
+      "method": "POST",
+      "host": "www.google.com",
+      "path": "/measurement/conversion",
+      "feature": "other",
+      "calls_observed": 2,
+      "status_codes": {
+        "200": 2
+      },
+      "query_params": [
+        "ae",
+        "auid",
+        "cv",
+        "dma",
+        "en",
+        "fmt",
+        "frm",
+        "fst",
+        "gacid",
+        "gcd",
+        "gtm",
+        "hn",
+        "npa",
+        "pscdl",
+        "random",
+        "rcb",
+        "ref",
+        "tag_exp",
+        "tiba",
+        "tid",
+        "u_h",
+        "u_w",
+        "uaa",
+        "uab",
+        "uafvl",
+        "uam",
+        "uamb",
+        "uap",
+        "uapv",
+        "uaw",
+        "url"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "POST /payment-service/payment-listing-api/v1/quickpay",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/payment-service/payment-listing-api/v1/quickpay",
+      "feature": "other",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature"
+      ],
+      "request_body_shape": {
+        "installedUpiApps": [],
+        "sourceId": "string",
+        "source": "string",
+        "isCredPayEligible": "bool",
+        "sourceToken": "string",
+        "ptpActionType": "string"
+      },
+      "response_shape": {
+        "errors": [],
+        "data": "null"
+      }
+    },
+    {
+      "name": "POST /rmkt/collect/{n}/",
+      "method": "POST",
+      "host": "www.google.com",
+      "path": "/rmkt/collect/{n}/",
+      "feature": "other",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "_tu",
+        "async",
+        "auid",
+        "bg",
+        "cv",
+        "data",
+        "dma",
+        "en",
+        "ept",
+        "fmt",
+        "frm",
+        "fst",
+        "gcd",
+        "gcp",
+        "gtm",
+        "guid",
+        "hn",
+        "npa",
+        "pscdl",
+        "random",
+        "rcb",
+        "tag_exp",
+        "tiba",
+        "u_h",
+        "u_w",
+        "uaa",
+        "uab",
+        "uafvl",
+        "uam",
+        "uamb",
+        "uap",
+        "uapv",
+        "uaw",
+        "url"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "GET /serviceability-service/api/v1/serviceability",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/serviceability-service/api/v1/serviceability",
+      "feature": "other",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [
+        "lat",
+        "long"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": {
+        "errors": [],
+        "data": {
+          "serviceable": "bool",
+          "addressesData": "null",
+          "stores": [
+            "..."
+          ],
+          "regionCoordinates": "null",
+          "primary_store_meta": {
+            "eta_delta_threshold_in_mins": "..."
+          }
+        }
+      }
+    },
+    {
+      "name": "GET /tr/",
+      "method": "GET",
+      "host": "www.facebook.com",
+      "path": "/tr/",
+      "feature": "other",
+      "calls_observed": 5,
+      "status_codes": {
+        "200": 5
+      },
+      "query_params": [
+        "aems",
+        "coo",
+        "dl",
+        "ec",
+        "ev",
+        "expv2[0]",
+        "expv2[10]",
+        "expv2[11]",
+        "expv2[12]",
+        "expv2[13]",
+        "expv2[1]",
+        "expv2[2]",
+        "expv2[3]",
+        "expv2[4]",
+        "expv2[5]",
+        "expv2[6]",
+        "expv2[7]",
+        "expv2[8]",
+        "expv2[9]",
+        "fbp",
+        "id",
+        "if",
+        "it",
+        "iw",
+        "ler",
+        "o",
+        "plt",
+        "pmd[description]",
+        "pmd[keywords]",
+        "pmd[locale]",
+        "pmd[title]",
+        "r",
+        "rl",
+        "rqm",
+        "sh",
+        "sw",
+        "ts",
+        "tz",
+        "v"
+      ],
+      "auth_indicators": [],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "GET /search-federator-service/api/v1/search",
+      "method": "GET",
+      "host": "bff-gateway.zepto.com",
+      "path": "/search-federator-service/api/v1/search",
+      "feature": "search",
+      "calls_observed": 2,
+      "status_codes": {
+        "200": 2
+      },
+      "query_params": [
+        "mode",
+        "pageNumber",
+        "query"
+      ],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "explicit no-bearer opt-out",
+        "session header"
+      ],
+      "request_body_shape": null,
+      "response_shape": null
+    },
+    {
+      "name": "POST /user-search-service/api/v3/search/filters",
+      "method": "POST",
+      "host": "bff-gateway.zepto.com",
+      "path": "/user-search-service/api/v3/search/filters",
+      "feature": "search",
+      "calls_observed": 1,
+      "status_codes": {
+        "200": 1
+      },
+      "query_params": [],
+      "auth_indicators": [
+        "app request signature",
+        "csrf secret header",
+        "csrf token header",
+        "explicit no-bearer opt-out",
+        "session header"
+      ],
+      "request_body_shape": {
+        "query": "string",
+        "mode": "string",
+        "userSessionId": "string",
+        "pageNumber": "number"
+      },
+      "response_shape": null
+    }
+  ]
+}

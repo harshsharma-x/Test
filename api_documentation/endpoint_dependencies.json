@@ -1,0 +1,238 @@
+{
+  "version": "1.0",
+  "description": "API Endpoint sequence rules, prerequisites, and data dependencies observed on Zepto",
+  "nodes": {
+    "create_csrf_token": {
+      "endpoint": "GET https://www.zepto.com/api/auth/create-csrf-token",
+      "prerequisites": [],
+      "produces": [
+        "x-csrf-secret",
+        "x-xsrf-token",
+        "cookie: csrfToken"
+      ],
+      "required_for": [
+        "send_otp",
+        "verify_otp",
+        "all_authenticated_calls"
+      ]
+    },
+    "serviceability_check": {
+      "endpoint": "GET https://bff-gateway.zepto.com/serviceability-service/api/v1/serviceability",
+      "prerequisites": [],
+      "query_parameters": [
+        "lat",
+        "long"
+      ],
+      "produces": [
+        "storeId",
+        "serviceable",
+        "primary_store_meta"
+      ],
+      "required_for": [
+        "get_page",
+        "search",
+        "cart_create"
+      ]
+    },
+    "send_otp": {
+      "endpoint": "POST https://bff-gateway.zepto.com/api/v1/user/customer/send-otp-sms/",
+      "prerequisites": [
+        "create_csrf_token"
+      ],
+      "body": {
+        "mobileNumber": "string",
+        "countryCode": "+91"
+      },
+      "produces": [
+        "verificationType",
+        "otp_sent_status"
+      ],
+      "required_for": [
+        "verify_otp"
+      ]
+    },
+    "verify_otp": {
+      "endpoint": "POST https://www.zepto.com/api/auth/verify-otp",
+      "prerequisites": [
+        "send_otp"
+      ],
+      "body": {
+        "mobileNumber": "string",
+        "countryCode": "+91",
+        "otpToken": "string"
+      },
+      "produces": [
+        "user_profile",
+        "session_id",
+        "auth_cookie",
+        "user_id"
+      ],
+      "required_for": [
+        "customer_info",
+        "cart_create",
+        "orders_list",
+        "wallet_balance"
+      ]
+    },
+    "customer_info": {
+      "endpoint": "POST https://bff-gateway.zepto.com/api/v2/user/customer/info/",
+      "prerequisites": [
+        "verify_otp"
+      ],
+      "body": {
+        "appVersion": "string",
+        "bundleVersion": "string",
+        "deviceUid": "string",
+        "platform": "DESKTOP"
+      },
+      "produces": [
+        "userAggregate",
+        "ongoingOrderId",
+        "referralCode"
+      ],
+      "required_for": [
+        "pass_overview",
+        "profile_dashboard"
+      ]
+    },
+    "get_page": {
+      "endpoint": "GET https://bff-gateway.zepto.com/lms/api/v2/get_page",
+      "prerequisites": [
+        "serviceability_check"
+      ],
+      "query_parameters": [
+        "latitude",
+        "longitude",
+        "page_type",
+        "version",
+        "page_size"
+      ],
+      "produces": [
+        "widgets",
+        "pageLayout",
+        "storeServiceableResponse"
+      ],
+      "required_for": [
+        "catalogue_rendering"
+      ]
+    },
+    "search_products": {
+      "endpoint": "POST https://bff-gateway.zepto.com/user-search-service/api/v3/search",
+      "fallback_endpoint": "GET https://bff-gateway.zepto.com/search-federator-service/api/v1/search",
+      "prerequisites": [
+        "serviceability_check"
+      ],
+      "headers": {
+        "x-without-bearer": "true"
+      },
+      "body": {
+        "query": "string",
+        "pageNumber": 0,
+        "mode": "SHOW_ALL_RESULTS",
+        "userSessionId": "uuid"
+      },
+      "produces": [
+        "products",
+        "layout",
+        "filters",
+        "facets"
+      ],
+      "required_for": [
+        "product_detail",
+        "add_to_cart"
+      ]
+    },
+    "cart_create_or_update": {
+      "endpoint": "POST https://bff-gateway.zepto.com/cfs/api/v1/cart/create",
+      "prerequisites": [
+        "serviceability_check",
+        "verify_otp"
+      ],
+      "body": {
+        "storeId": "string",
+        "cartId": "string",
+        "cartProducts": [
+          {
+            "storeProductId": "string",
+            "productVariantId": "string",
+            "mrp": "number",
+            "quantity": "number"
+          }
+        ]
+      },
+      "produces": [
+        "cartId",
+        "totalAmount",
+        "discountAmount",
+        "itemsCount"
+      ],
+      "required_for": [
+        "bulk_widget_enrichment",
+        "checkout_preview"
+      ]
+    },
+    "bulk_widget_enrichment": {
+      "endpoint": "POST https://bff-gateway.zepto.com/cfs/api/v1/bulk-widget-data",
+      "prerequisites": [
+        "cart_create_or_update"
+      ],
+      "body": {
+        "widgets": [],
+        "cartProducts": [],
+        "cartId": "string",
+        "enrichCall": true,
+        "showAllOffers": true
+      },
+      "produces": [
+        "deliveryFeeMov",
+        "applicableCoupons",
+        "bundleOffers"
+      ],
+      "required_for": [
+        "best_offer_engine",
+        "checkout_preview"
+      ]
+    },
+    "orders_list": {
+      "endpoint": "GET https://bff-gateway.zepto.com/api/v2/order/",
+      "prerequisites": [
+        "verify_otp"
+      ],
+      "query_parameters": [
+        "next_page_params.last_order_created_on"
+      ],
+      "produces": [
+        "orders",
+        "totalOrders",
+        "grandTotalAmount",
+        "status"
+      ],
+      "required_for": [
+        "order_detail",
+        "order_tracking"
+      ]
+    },
+    "order_detail": {
+      "endpoint": "POST https://bff-gateway.zepto.com/pfs-postorder/api/v1/get-page/ORDER_DETAILS",
+      "prerequisites": [
+        "orders_list"
+      ],
+      "body": {
+        "orderId": "string",
+        "page_size": 8,
+        "isArchived": false,
+        "enforce_platform_type": "DESKTOP"
+      },
+      "produces": [
+        "orderDetails",
+        "itemBreakdown",
+        "deliveryAddress",
+        "paymentSummary"
+      ],
+      "required_for": [
+        "invoice_download",
+        "order_support"
+      ]
+    }
+  }
+}

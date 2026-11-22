@@ -1,0 +1,229 @@
+openapi: "3.0.3"
+info:
+  title: "Observed API surface"
+  version: "0.1.0"
+  description: "Auto-generated from captured traffic. Not an official specification."
+servers:
+  - url: "https://bff-gateway.zepto.com"
+paths:
+  /api/v1/pass/overview:
+    get:
+      summary: "Observed account call (6 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 6 time(s)"
+  /api/v1/user/customer/referrals/:
+    get:
+      summary: "Observed account call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /api/v1/wallet-balances/total:
+    get:
+      summary: "Observed account call (1 samples)"
+      parameters:
+        - name: "includePendingGiftCardInfo"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /api/v2/user/customer/info/:
+    post:
+      summary: "Observed account call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /coupon-service/api/v1/coupons/promo_cash:
+    get:
+      summary: "Observed account call (1 samples)"
+      parameters:
+        - name: "source"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /api/v1/user/customer/send-otp-sms/:
+    post:
+      summary: "Observed authentication call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /cfs/api/v1/cart/create:
+    post:
+      summary: "Observed cart call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /cfs/api/v1/bulk-widget-data:
+    post:
+      summary: "Observed catalogue call (7 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 7 time(s)"
+  /lms/api/v2/get_page:
+    get:
+      summary: "Observed catalogue call (16 samples)"
+      parameters:
+        - name: "enforce_platform_type"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "last_widget_id"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "latitude"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "layout_id"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "longitude"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "page_size"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "page_type"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "show_new_eta_banner"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "tab_id"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "version"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 16 time(s)"
+  /recommendation-service/api/v1/buy-again-products:
+    get:
+      summary: "Observed catalogue call (4 samples)"
+      parameters:
+        - name: "group_id"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "store_id"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 4 time(s)"
+  /api/v2/order/:
+    get:
+      summary: "Observed orders call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /post-order-service/api/v2/order/last-ongoing-order:
+    get:
+      summary: "Observed orders call (3 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 3 time(s)"
+  /samiksha-service/api/v1/order-rating:
+    post:
+      summary: "Observed orders call (3 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 3 time(s)"
+  /api/v1/gateway/graphql/:
+    post:
+      summary: "Observed other call (6 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 6 time(s)"
+  /payment-service/payment-listing-api/v1/quickpay:
+    post:
+      summary: "Observed other call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /serviceability-service/api/v1/serviceability:
+    get:
+      summary: "Observed other call (1 samples)"
+      parameters:
+        - name: "lat"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "long"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 1 time(s)"
+  /search-federator-service/api/v1/search:
+    get:
+      summary: "Observed search call (2 samples)"
+      parameters:
+        - name: "mode"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "pageNumber"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+        - name: "query"
+          in: "query"
+          schema:
+            type: "string"
+          required: false
+      responses:
+        200:
+          description: "Observed 2 time(s)"
+  /user-search-service/api/v3/search/filters:
+    post:
+      summary: "Observed search call (1 samples)"
+      parameters: "[]"
+      responses:
+        200:
+          description: "Observed 1 time(s)"
